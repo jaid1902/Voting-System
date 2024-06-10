@@ -12,7 +12,7 @@ body {
   background: linear-gradient(
     90deg,
     hsla(280, 95%, 57%, 1) 0%,
-    hsla(193, 90%, 55%, 1) 100%
+    #25c7f4 100%
   );
 
   background: -moz-linear-gradient(
@@ -35,6 +35,8 @@ body {
 }
 
 * {
+  font-family: ArialCalisto MT;
+
   top: 0;
   padding: 0;
   box-sizing: border-box;

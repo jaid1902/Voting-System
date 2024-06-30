@@ -198,15 +198,15 @@
 
 @media (max-width: 640px) {
   .welcome {
-    font-size: 2.54vh;
+    font-size: 2.24vh;
   }
   .msg {
-    font-size: 2.2vh;
+    font-size: 1.8vh;
   }
   .textcontainer {
-    font-size: 2.2vh;
+    font-size: 1.8vh;
   }
-  .msgcontainer {
+  .msgcontainer { 
     font-size: 2.2vh;
   }
 }

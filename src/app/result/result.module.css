@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 5vh;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.image {
+  border-radius: 15px;
+}
+
+.textcontainer {
+  font-size: 4vh;
+}
+
+@media (max-width: 320px) {
+  .title {
+    padding: 10px;
+  }
+  .image {
+    height: 100%;
+    width: 100%;
+  }
+}

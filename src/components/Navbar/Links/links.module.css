@@ -1,10 +1,27 @@
 .links {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 50px;
 }
 .menuButton,
 .mobilelinks {
   display: none;
+}
+
+.btn {
+  padding: 0.5vw 1.5vw 0.5vw 1.5vw;
+  cursor: pointer;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: 2.7vh;
+  background: none;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
 }
 
 @media (max-width: 768px) {
@@ -28,5 +45,11 @@
     justify-content: center;
     gap: 10px;
     z-index: 1000;
+  }
+}
+
+@media (max-width: 320px) {
+  .mobilelinks {
+    font-size: 6vw;
   }
 }

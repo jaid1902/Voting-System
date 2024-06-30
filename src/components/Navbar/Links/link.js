@@ -2,7 +2,8 @@
 import { useState } from "react";
 import styles from "./links.module.css";
 import NavLinks from "./NavLinks/NavLinks";
-export function Links() {
+import { handleLogout } from "@/lib/action";
+export function Links({ session }) {
   const [open, setOpen] = useState(false);
   const links = [
     {
@@ -17,18 +18,29 @@ export function Links() {
       title: "Result",
       path: "/result",
     },
-    {
-      title: "Login",
-      path: "/login",
-    },
   ];
+
+  // const session = true;
+  const isAdmin = true;
 
   return (
     <div>
       <div className={styles.links}>
         {links.map((item) => {
-          return <NavLinks link={item} />;
+          return <NavLinks link={item} key={item.title} />;
         })}
+        {session?.user ? (
+          <>
+            {session.user?.isAdmin && (
+              <NavLinks link={{ title: "Admin", path: "/admin" }} />
+            )}
+            <form action={handleLogout}>
+              <button className={styles.btn}> LogOut</button>
+            </form>
+          </>
+        ) : (
+          <NavLinks link={{ title: "Login", path: "/login" }} />
+        )}
       </div>
       <svg
         className={styles.menuButton}
@@ -55,7 +67,7 @@ export function Links() {
       {open && (
         <div className={styles.mobilelinks}>
           {links.map((item) => {
-            return <NavLinks link={item} />;
+            return <NavLinks link={item} key={item.title} />;
           })}
         </div>
       )}

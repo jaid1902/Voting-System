@@ -1,0 +1,17 @@
+.container {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  
+}
+
+.posts {
+  flex: 2;
+}
+.form {
+  flex: 1;
+}

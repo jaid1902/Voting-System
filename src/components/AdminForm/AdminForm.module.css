@@ -1,0 +1,158 @@
+.form {
+  font-size: 2.5vh;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.register {
+  font-weight: 500;
+  font-size: 2vw;
+}
+.form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form label {
+  color: #e5e5e5;
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form input {
+  color: white;
+  font-size: 2.5vh;
+  flex: 1;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  outline: none;
+  color: white;
+}
+
+.form input::placeholder {
+  color: white;
+}
+
+.form button {
+  background-color: rgba(255, 255, 255, 0.075);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+  color: white;
+  font-size: 2.5vh;
+  padding: 10px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: white;
+  color: #3673fd;
+  border-color: white;
+}
+.area {
+  width: 100%;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  padding: 10px;
+  font-size: 2.5vh;
+  color: #f4f4f4;
+}
+
+.area::placeholder {
+  color: white;
+}
+
+.link {
+  font-size: 1.2vw;
+  font-weight: 200;
+}
+
+.link b {
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .form {
+    font-size: 1.9vw;
+  }
+  .register {
+    font-size: 3.2vw;
+  }
+  .form input {
+    font-size: 1.5vw;
+  }
+  .form button {
+    font-size: 1.6vw;
+  }
+  .link {
+    font-size: 1.6vw;
+  }
+  .link b {
+    font-size: 1.7vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .form label {
+    display: none;
+  }
+  .form {
+    padding: 35px;
+  }
+
+  .form input {
+    font-size: 2.5vw;
+  }
+  .form button {
+    font-size: 2.2vw;
+  }
+  .link {
+    font-size: 2.3vw;
+  }
+  .link b {
+    font-size: 2.4vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .form {
+    padding: 30px;
+  }
+  .register {
+    font-size: 4vw;
+  }
+  .form input {
+    font-size: 3vw;
+    font-size: 2vh;
+  }
+  .form button {
+    font-size: 3vw;
+  }
+  .link {
+    font-size: 2.8vw;
+  }
+  .link b {
+    font-size: 2.9vw;
+  }
+  .area::placeholder {
+    font-size: 2vh;
+  }
+}

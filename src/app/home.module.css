@@ -149,11 +149,6 @@
     font-size: 2vw;
   }
 
-  .container {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
   .img {
     border-radius: 10px;
     object-fit: cover;

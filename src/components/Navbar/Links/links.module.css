@@ -42,14 +42,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    padding-top: 50px;
+    justify-content: start;
+    gap: 20px;
     z-index: 1000;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 365px) {
   .mobilelinks {
-    font-size: 6vw;
+    font-size: 2.5vh;
   }
 }

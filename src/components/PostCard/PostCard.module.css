@@ -24,13 +24,13 @@
   font-size: 1.2vw;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 365px) {
   .desc {
-    font-size: 5vw;
+    font-size: 2vh;
   }
   .image {
     height: 100px;
-    width: 200px;
+    width: 200px
   }
   .textcontainer {
     font-size: 6vw;

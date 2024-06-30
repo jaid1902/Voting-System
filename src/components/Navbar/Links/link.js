@@ -20,9 +20,6 @@ export function Links({ session }) {
     },
   ];
 
-  // const session = true;
-  const isAdmin = true;
-
   return (
     <div>
       <div className={styles.links}>
@@ -69,6 +66,18 @@ export function Links({ session }) {
           {links.map((item) => {
             return <NavLinks link={item} key={item.title} />;
           })}
+          {session?.user ? (
+            <>
+              {session.user?.isAdmin && (
+                <NavLinks link={{ title: "Admin", path: "/admin" }} />
+              )}
+              <form action={handleLogout}>
+                <button className={styles.btn}> LogOut</button>
+              </form>
+            </>
+          ) : (
+            <NavLinks link={{ title: "Login", path: "/login" }} />
+          )}
         </div>
       )}
     </div>

@@ -11,3 +11,11 @@
   z-index: 1;
   
 }
+
+@media (max-width: 365px) {
+  .container {
+    padding: 10px 14px;
+    border-radius: 20px;
+  }
+  
+}

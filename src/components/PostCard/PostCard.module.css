@@ -24,15 +24,21 @@
   font-size: 1.2vw;
 }
 
-@media (max-width: 365px) {
+@media (max-width: 320px) {
   .desc {
-    font-size: 2vh;
+    font-size: 5vw;
   }
   .image {
     height: 100px;
-    width: 200px
+    width: 200px;
   }
   .textcontainer {
     font-size: 6vw;
+  }
+}
+
+@media (max-width: 365px) {
+  .desc {
+    font-size: 2.2vh;
   }
 }

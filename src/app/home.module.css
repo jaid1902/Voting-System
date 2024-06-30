@@ -198,7 +198,7 @@
 
 @media (max-width: 640px) {
   .welcome {
-    font-size: 2.4vh;
+    font-size: 2vh;
   }
   .msg {
     font-size: 1.7vh;

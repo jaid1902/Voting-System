@@ -7,15 +7,14 @@ export default function AdminPosts({ posts }) {
   return (
     <div>
       <div>
-        {posts.map((post) => (
-          <div key={post.id} className={styles.container}>
+        {posts.map((post, index) => (
+          <div key={post.id || index} className={styles.container}>
             <div>{post.candidate_name}</div>
-            <button
-              onClick={() => deletePost(post.candidate_name)}
-              className={styles.btn}
-            >
-              Delete
-            </button>
+
+            <form action={deletePost}>
+              <input type="hidden" name="id" value={post._id} />
+              <button className={styles.btn}>Delete</button>
+            </form>
           </div>
         ))}
       </div>

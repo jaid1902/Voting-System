@@ -27,17 +27,17 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-const candidateSchema = new mongoose.Schema(
-  {
-    candidate_name: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+// const candidateSchema = new mongoose.Schema(
+//   {
+//     candidate_name: {
+//       type: String,
+//       required: true,
+//     },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
 
 const userSchema = new mongoose.Schema(
   {
@@ -64,12 +64,16 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    count: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
 
-export const Candidate =
-  mongoose.models?.Candidate || mongoose.model("Candidate", candidateSchema);
+// export const Candidate =
+//   mongoose.models?.Candidate || mongoose.model("Candidate", candidateSchema);
 
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);

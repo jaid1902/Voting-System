@@ -66,11 +66,7 @@
   color: #03a9f4;
 }
 
-.result {
-  padding-top: 20vh;
-  padding-bottom: 25vh;
-  font-size: 3vw;
-}
+
 
 @media (max-width: 1024px) {
   .form,

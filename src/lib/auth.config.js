@@ -1,3 +1,5 @@
+import Message from "@/components/Message/Message";
+
 export const authConfig = {
   pages: {
     signIn: "/login",
@@ -8,6 +10,7 @@ export const authConfig = {
       if (user) {
         token.id = user.id;
         token.isAdmin = user.isAdmin;
+        token.count = user.count;
       }
       return token;
     },
@@ -15,6 +18,7 @@ export const authConfig = {
       if (token) {
         session.user.id = token.id;
         session.user.isAdmin = token.isAdmin;
+        session.user.count = token.count;
       }
       return session;
     },
@@ -37,7 +41,9 @@ export const authConfig = {
       if (isOnLoginPage && user) {
         return Response.redirect(new URL("/", request.nextUrl));
       }
-
+      if (isOnVotingPage && user?.count >= 1) {
+        return Response.redirect(new URL("/dashboard", request.nextUrl));
+      }
       return true;
     },
   },

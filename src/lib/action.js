@@ -1,10 +1,10 @@
 "use server";
-
 import { revalidatePath } from "next/cache";
-import { Candidate, Post, User } from "./models";
+import { Post, User } from "./models";
 import { connectToDb } from "./utils";
 import bcrypt from "bcryptjs";
-import { signIn, signOut } from "./auth";
+import { auth, signIn, signOut } from "./auth";
+import { ObjectId } from "mongodb";
 
 export const login = async (prevState, formData) => {
   const { username, password } = Object.fromEntries(formData);
@@ -37,7 +37,12 @@ export const register = async (prevState, formData) => {
     }
     const salt = await bcrypt.genSalt(10);
     const hashpassword = await bcrypt.hash(password, salt);
-    const newUser = new User({ username, email, password: hashpassword });
+    const newUser = new User({
+      username,
+      email,
+      password: hashpassword,
+      count: 0,
+    });
     await newUser.save();
     console.log("saved to db!");
 
@@ -76,28 +81,49 @@ export const addCount = async (prevState, formData) => {
   const party = counter.party;
   const img = counter.img;
   const desc = counter.description;
-  const co = counter.count;
-  await Post.deleteOne({ candidate_name });
-  const addpost = new Post({
-    candidate_name,
-    party,
-    img,
-    description: desc,
-    count: co + 1,
-  });
-  await addpost.save();
-  console.log("Candidate Inserted");
-  console.log(counter);
+  const co = counter.count + 1;
+  try {
+    await Post.deleteOne({ candidate_name });
+    const addpost = new Post({
+      candidate_name,
+      party,
+      img,
+      description: desc,
+      count: co,
+    });
+    await addpost.save();
+    console.log("Candidate Inserted");
+
+    const session = await auth();
+    console.log(session.user);
+    console.log(session.user.count);
+    const userId = new ObjectId(session.user.id + ""); // Ensure userId is an ObjectId
+    console.log(userId);
+
+    await User.findByIdAndUpdate(
+      userId, // The _id of the user document
+      { count: 1 }, // Increment the count field by 1
+      { new: true } // Option to return the modified document
+    );
+
+    return { success: true };
+  } catch (err) {
+    console.log(err);
+    return { error: "Something went wrong!" };
+  }
 };
 
-export const deletePost = async (candidate_name) => {
-  console.log(candidate_name);
+export const deletePost = async (formData) => {
+  const { id } = Object.fromEntries(formData);
   try {
     connectToDb();
-    await Post.deleteOne({ candidate_name });
+
+    await Post.findByIdAndDelete(id);
+    console.log("deleted from db");
+    revalidatePath("/dashboard");
     revalidatePath("/admin");
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to Delete post!");
+    return { error: "Something went wrong!" };
   }
 };

@@ -33,6 +33,10 @@
   color: #03a9f4;
 }
 
+.msg {
+  font-size: 4.2vh;
+}
+
 .container {
   display: flex;
   justify-content: center;

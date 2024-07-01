@@ -1,22 +1,30 @@
 import { PostCard } from "@/components/PostCard/PostCard";
 import styles from "./dashboard.module.css";
 import Link from "next/link";
+import { getPosts } from "@/lib/data";
+import Message from "@/components/Message/Message";
+import { auth } from "@/lib/auth";
 
-const getData = async () => {
-  const res = await fetch(process.env.URL + "api", {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Something went wrong! ");
-  }
-  return res.json();
-};
+// const getData = async () => {
+//   const res = await fetch(process.env.URL + "api", {
+//     cache: "no-store",
+//   });
+//   if (!res.ok) {
+//     throw new Error("Something went wrong! ");
+//   }
+//   return res.json();
+// };
 
 const Dashboard = async () => {
-  const posts = await getData();
+  const posts = await getPosts();
+  const session = await auth();
 
+  // if (session.user.count >= 1) {
+  //   <Message session={session} />;
+  // }
   return (
     <div>
+      {/* <Message session={session} /> */}
       <div className={styles.header}>
         <div className={styles.title}>
           Jackie Chan Cartoon Characters Championship 2024
@@ -29,14 +37,23 @@ const Dashboard = async () => {
           <p>October 2024 (Exact dates to be announced)</p>
         </div>
         <div>
-          <Link href="/dashboard/Voting" className={styles.vote}>
-            Click to Vote
-          </Link>
+          {session.user.count >= 1 ? (
+            <div className={styles.msg}>You have Already Votted🎉 </div>
+          ) : (
+            <Link
+              href="/dashboard/Voting"
+              className={styles.vote}
+              onClick={() => {
+                return <Message />;
+              }}
+            >
+              Click to Vote
+            </Link>
+          )}
         </div>
       </div>
       <div className={styles.container}>
         {posts.map((post, index) => (
-
           <PostCard key={post.id || index} post={post} />
         ))}
       </div>

@@ -1,5 +1,3 @@
-import Message from "@/components/Message/Message";
-
 export const authConfig = {
   pages: {
     signIn: "/login",

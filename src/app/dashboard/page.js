@@ -2,7 +2,6 @@ import { PostCard } from "@/components/PostCard/PostCard";
 import styles from "./dashboard.module.css";
 import Link from "next/link";
 import { getPosts } from "@/lib/data";
-import Message from "@/components/Message/Message";
 import { auth } from "@/lib/auth";
 
 // const getData = async () => {
@@ -19,12 +18,8 @@ const Dashboard = async () => {
   const posts = await getPosts();
   const session = await auth();
 
-  // if (session.user.count >= 1) {
-  //   <Message session={session} />;
-  // }
   return (
     <div>
-      {/* <Message session={session} /> */}
       <div className={styles.header}>
         <div className={styles.title}>
           Jackie Chan Cartoon Characters Championship 2024
@@ -34,19 +29,13 @@ const Dashboard = async () => {
             A competition to determine the most popular character from the
             Jackie Chan cartoon series.
           </p>
-          <p>October 2024 (Exact dates to be announced)</p>
+          <p>July 2024 (Exact dates to be announced)</p>
         </div>
         <div>
-          {session.user.count >= 1 ? (
+          {session?.user?.count >= 1 ? (
             <div className={styles.msg}>You have Already Votted🎉 </div>
           ) : (
-            <Link
-              href="/dashboard/Voting"
-              className={styles.vote}
-              onClick={() => {
-                return <Message />;
-              }}
-            >
+            <Link href="/dashboard/Voting" className={styles.vote}>
               Click to Vote
             </Link>
           )}

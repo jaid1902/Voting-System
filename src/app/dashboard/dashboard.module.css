@@ -69,6 +69,10 @@
   .vote {
     font-size: 3.4vw;
   }
+  .msg {
+    font-size: 3.6vw;
+    color: white;
+  }
 }
 
 @media (max-width: 320px) {

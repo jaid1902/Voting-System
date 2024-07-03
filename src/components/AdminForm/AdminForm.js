@@ -1,9 +1,12 @@
 import { addCandidate } from "@/lib/action";
 import styles from "./AdminForm.module.css";
+import { useFormState } from "react-dom";
 
 export default function AdminForm() {
+  const [state, formAction] = useFormState(addCandidate, undefined);
+
   return (
-    <form className={styles.form} action={addCandidate}>
+    <form className={styles.form} action={formAction}>
       <div className={styles.register}>Add Candidate</div>
       <div>
         <input
@@ -40,6 +43,7 @@ export default function AdminForm() {
       <div>
         <button>Add</button>
       </div>
+      {state?.error}
     </form>
   );
 }

@@ -53,7 +53,7 @@ export const register = async (prevState, formData) => {
   }
 };
 
-export const addCandidate = async (formData) => {
+export const addCandidate = async (prevState, formData) => {
   const { candidate_name, party, img, description, count } =
     Object.fromEntries(formData);
   console.log(candidate_name, party, img, description, count);
@@ -71,7 +71,7 @@ export const addCandidate = async (formData) => {
     console.log("Candidate Inserted");
   } catch (err) {
     console.log(err);
-    throw new Error("Something went wrong!");
+    return { error: "Something went wrong!" };
   }
 };
 
@@ -97,15 +97,12 @@ export const addCount = async (prevState, formData) => {
     const session = await auth();
     console.log(session.user);
     console.log(session.user.count);
-    const userId = new ObjectId(session.user.id + ""); // Ensure userId is an ObjectId
+    const userId = new ObjectId(session.user.id + "");
     console.log(userId);
 
-    await User.findByIdAndUpdate(
-      userId, // The _id of the user document
-      { count: 1 }, // Increment the count field by 1
-      { new: true } // Option to return the modified document
-    );
-
+    await User.findByIdAndUpdate(userId, { count: 1 }, { new: true });
+    revalidatePath("/dashboard");
+    revalidatePath("/result");
     return { success: true };
   } catch (err) {
     console.log(err);

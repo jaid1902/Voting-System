@@ -1,6 +1,6 @@
 import { connectToDb } from "./utils";
 
-const { Post } = require("./models");
+const { Post, User } = require("./models");
 
 export const getPosts = async () => {
   try {
@@ -13,6 +13,13 @@ export const getPosts = async () => {
   }
 };
 
-export const Votted = () => {
-  alert("You already votted!");
+export const getPost = async (id) => {
+  try {
+    connectToDb();
+    const post = await User.findById(id);
+    return post;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch posts!");
+  }
 };

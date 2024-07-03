@@ -1,7 +1,7 @@
 import { PostCard } from "@/components/PostCard/PostCard";
 import styles from "./dashboard.module.css";
 import Link from "next/link";
-import { getPosts } from "@/lib/data";
+import { getPost, getPosts } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
 // const getData = async () => {
@@ -17,7 +17,8 @@ import { auth } from "@/lib/auth";
 const Dashboard = async () => {
   const posts = await getPosts();
   const session = await auth();
-
+  const candidate = await getPost(session?.user?.id);
+  console.log(candidate);
   return (
     <div>
       <div className={styles.header}>
@@ -32,7 +33,7 @@ const Dashboard = async () => {
           <p>July 2024 (Exact dates to be announced)</p>
         </div>
         <div>
-          {session?.user?.count >= 1 ? (
+          {candidate?.count >= 1 ? (
             <div className={styles.msg}>You have Already Votted🎉 </div>
           ) : (
             <Link href="/dashboard/Voting" className={styles.vote}>

@@ -1,3 +1,4 @@
+"use client";
 import { addCandidate } from "@/lib/action";
 import styles from "./AdminForm.module.css";
 import { useFormState } from "react-dom";

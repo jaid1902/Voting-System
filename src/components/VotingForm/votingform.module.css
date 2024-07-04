@@ -28,7 +28,6 @@
   padding-bottom: 20px;
 }
 
-
 .imgcontainer {
   flex: 1;
 }
@@ -66,7 +65,12 @@
   color: #03a9f4;
 }
 
-
+.result {
+  text-align: center;
+  padding-top: 20vh;
+  padding-bottom: 25vh;
+  font-size: 3vw;
+}
 
 @media (max-width: 1024px) {
   .form,

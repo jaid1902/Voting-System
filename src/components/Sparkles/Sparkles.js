@@ -1,9 +1,7 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import ReactConfetti from "react-confetti";
-import styles from "./sparkles.module.css";
-export default function Votted() {
+export default function Sparkles() {
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -29,14 +27,13 @@ export default function Votted() {
   }, []);
 
   return (
-    <div className={styles.confettiContainer}>
+    <div>
       <ReactConfetti
         width={windowDimensions.width}
         height={windowDimensions.height}
         tweenDuration={1000}
         gravity={0.1}
       />
-      <div className={styles.result}>Thank You For Voting</div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./votingform.module.css";
 import { useFormState } from "react-dom";
 import { addCount } from "@/lib/action";
-import Sparkles from "../Sparkles/Sparkles";
 
 export default function VotingForm({ posts }) {
   const [state, formAction] = useFormState(addCount, undefined);
@@ -44,7 +43,7 @@ export default function VotingForm({ posts }) {
           </div>
         </form>
       ) : (
-        <Sparkles />
+        <div className={styles.result}>Thank You For Voting</div>
       )}
     </div>
   );

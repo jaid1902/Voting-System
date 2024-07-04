@@ -4,16 +4,6 @@ import Link from "next/link";
 import { getPost, getPosts } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
-// const getData = async () => {
-//   const res = await fetch(process.env.URL + "api", {
-//     cache: "no-store",
-//   });
-//   if (!res.ok) {
-//     throw new Error("Something went wrong! ");
-//   }
-//   return res.json();
-// };
-
 const Dashboard = async () => {
   const posts = await getPosts();
   const session = await auth();

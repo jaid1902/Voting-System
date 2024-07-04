@@ -1,27 +1,16 @@
 import Image from "next/image";
 import styles from "./result.module.css";
 import { getPosts } from "@/lib/data";
-
-// async function getData() {
-//   try {
-//     const res = await fetch(process.env.URL + "api", {
-//       cache: "no-store",
-//     });
-//     if (!res.ok) throw new Error("Failed to Fetch Data!");
-//     return res.json();
-//   } catch (err) {
-//     console.log(err);
-//     throw new Error("Something went Wrong!");
-//   }
-// }
+import Sparkles from "@/components/Sparkles/Sparkles";
 
 export default async function Result() {
   const posts = await getPosts();
   const count = posts.map((post) => post.count);
   const max = Math.max.apply(null, count);
   const array = posts.filter((post) => post.count === max);
-  return (  
+  return (
     <div className={styles.container}>
+      <Sparkles />
       <div className={styles.title}>Congratulations to the Winner!</div>
       {array.map((item, index) => (
         <div key={index} className={styles.box}>
@@ -36,7 +25,7 @@ export default async function Result() {
           </div>
           <div className={styles.textcontainer}>
             <p>
-              <strong>{item.candidate_name}</strong> received 
+              <strong>{item.candidate_name}</strong> received
               <strong> {item.count} votes</strong> and has been chosen as the
               winner!
             </p>

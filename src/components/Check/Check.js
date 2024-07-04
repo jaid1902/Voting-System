@@ -6,9 +6,11 @@ import { useEffect } from "react";
 export default function Check({ count }) {
   const router = useRouter();
   useEffect(() => {
-    if (count >= 1) {
-      router.push("/dashboard");
-    }
+    setTimeout(() => {
+      if (count >= 1) {
+        router.push("/");
+      }
+    }, 1600);
   });
   return <div></div>;
 }

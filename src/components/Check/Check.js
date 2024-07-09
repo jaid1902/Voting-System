@@ -10,7 +10,7 @@ export default function Check({ count }) {
       if (count >= 1) {
         router.push("/");
       }
-    }, 1200);
+    }, 1600);
   }, []);
   return <div></div>;
 }

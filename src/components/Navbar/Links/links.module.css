@@ -20,7 +20,7 @@
   background: none;
 }
 .btn:hover {
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #c7d9f3);
   background-size: 300%;
 }
 

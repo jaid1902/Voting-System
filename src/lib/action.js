@@ -114,7 +114,6 @@ export const deletePost = async (formData) => {
   const { id } = Object.fromEntries(formData);
   try {
     connectToDb();
-
     await Post.findByIdAndDelete(id);
     console.log("deleted from db");
     revalidatePath("/dashboard");

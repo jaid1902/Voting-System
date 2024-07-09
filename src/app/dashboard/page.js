@@ -1,13 +1,13 @@
 import { PostCard } from "@/components/PostCard/PostCard";
 import styles from "./dashboard.module.css";
 import Link from "next/link";
-import { getPost, getPosts } from "@/lib/data";
+import { getUser, getPosts } from "@/lib/data";
 import { auth } from "@/lib/auth";
 
 const Dashboard = async () => {
   const posts = await getPosts();
   const session = await auth();
-  const candidate = await getPost(session?.user?.id);
+  const candidate = await getUser(session?.user?.id);
   console.log(candidate);
   return (
     <div>

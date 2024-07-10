@@ -5,9 +5,28 @@ import Sparkles from "@/components/Sparkles/Sparkles";
 
 export default async function Result() {
   const posts = await getPosts();
+
+  const targetDate = new Date("2024-07-15T12:00:00+05:30");
+
+  const currentDate = new Date();
+
+  const showResults = currentDate >= targetDate;
+
+  if (!showResults) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.title}>Results will be announced soon!</div>
+        <div className={styles.message}>
+          Please check back after {targetDate.toLocaleString()}.
+        </div>
+      </div>
+    );
+  }
+
   const count = posts.map((post) => post.count);
   const max = Math.max.apply(null, count);
   const array = posts.filter((post) => post.count === max);
+
   return (
     <div className={styles.container}>
       <Sparkles />

@@ -1,11 +1,16 @@
 .container {
   display: flex;
   flex-direction: column;
+  height: 60vh;
   align-items: center;
   justify-content: center;
 }
 .title {
   font-size: 5vh;
+}
+.message {
+  margin-top: 20px;
+  font-size:3vh;
 }
 .box {
   display: flex;

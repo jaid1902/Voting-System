@@ -58,6 +58,6 @@ npm run dev
 
 ## Contact
 
-## For any queries or issues, please contact:
+# For any queries or issues, please contact:
 
-## Email: kumaranofficial7@gmail.com
+# Email: kumaranofficial7@gmail.com

@@ -6,9 +6,13 @@
   justify-content: center;
 }
 .title {
+  padding: 20px;
   font-size: 5vh;
+  text-align: center;
 }
 .message {
+  padding: 20px;
+  text-align: center;
   margin-top: 20px;
   font-size:3vh;
 }

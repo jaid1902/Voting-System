@@ -13,10 +13,16 @@ A secure platform for voting. This system allows any user to visit the dashboard
 - Protected routes and pages.
 - Real-time updates (MongoDB Atlas).
 
+## Application Link
+
+You can access the live application [here](https://online-voting-system-two.vercel.app/).
+
+
 ## Technologies Used
 
 - Next.js
 - CSS
+- JavaScript
 - MongoDB (MongoDB Atlas)
 
 ## Installation

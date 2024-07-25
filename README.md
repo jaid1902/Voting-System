@@ -17,7 +17,6 @@ A secure platform for voting. This system allows any user to visit the dashboard
 
 You can access the live application [here](https://online-voting-system-two.vercel.app/).
 
-
 ## Technologies Used
 
 - Next.js
@@ -58,6 +57,6 @@ npm run dev
 
 ## Contact
 
-# For any queries or issues, please contact:
+For any queries or issues, please contact:
 
-# Email: kumaranofficial7@gmail.com
+Email: kumaranofficial7@gmail.com

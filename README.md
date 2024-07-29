@@ -36,17 +36,6 @@ You can access the live application [here](https://online-voting-system-two.verc
    npm install
    ```
 
-## Configuration
-
-1. Create a `.env.local` file in the root of the project.
-2. Add the following environment variables to the `.env.local` file:
-   ```
-   MONGODB_URI=your_mongodb_connection_string
-   NEXTAUTH_URL=http://localhost:3000/api/auth
-   AUTH_SECRET=your_auth_secret
-   URL=http://localhost:3000/
-   ```
-
 ## Running the Application
 
 To run the application in development mode, use:
@@ -54,9 +43,3 @@ To run the application in development mode, use:
 ```bash
 npm run dev
 ```
-
-## Contact
-
-For any queries or issues, please contact:
-
-Email: kumaranofficial7@gmail.com

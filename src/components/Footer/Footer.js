@@ -2,7 +2,7 @@ import styles from "./footer.module.css";
 export default function Footer() {
   return (
     <div className={styles.foot}>
-      <p>&copy;2024 Kumaran</p>
+      <p>&copy;2024 Jaiganesh</p>
     </div>
   );
 }
